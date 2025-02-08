@@ -9,7 +9,8 @@ def rescaleFrame(frame, scale=0.75):
   
 # image rescaling
 img = cv.imread('Photos/cat2.jpg')
-cv.imshow('Cat', img)
+resized_image = rescaleFrame(img, scale=0.1)
+cv.imshow('Cat', resized_image)
 
 # video rescaling
 capture = cv.VideoCapture('Videos/dog.mp4')
@@ -17,9 +18,9 @@ capture = cv.VideoCapture('Videos/dog.mp4')
 while True:
     isTrue, frame = capture.read()
 
-    frame_resize = rescaleFrame(frame, scale=0.2)
+    frame_resize = rescaleFrame(frame, scale=0.75)
 
-    cv.imshow('Video', frame)
+    # cv.imshow('Video', frame)
     cv.imshow('Video Resized', frame_resize)
 
     if cv.waitKey(20) & 0xFF==ord('d'):
