@@ -29,12 +29,15 @@ translated = translate(img, -100, 100)
 def rotate(img, angle, rotPoint=None):
     (height, width) = img.shape[:2]
 
+    # point about which image will rotate
     if rotPoint is None:
         rotPoint = (width//2, height//2)
 
-    rotMat = cv.getRotationMatrix2D(rotPoint, angle, 1.0)
+    # this return the rotation matrix
+    rotMat = cv.getRotationMatrix2D(rotPoint, angle, 1.0) # 1.0 is scale
     dimensions = (width,height)
 
+    # this multiplies the rotation matrix with the image
     return cv.warpAffine(img, rotMat, dimensions)
 
 rotated = rotate(img, 45)

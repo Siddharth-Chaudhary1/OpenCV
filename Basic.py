@@ -20,6 +20,11 @@ blur = cv.GaussianBlur(img, (7, 7), cv.BORDER_DEFAULT)
 # cv.imshow('Blur', rescaleImage(blur))
 
 # Edge Cascade: to find edge of image
+
+# cv.Canny(img, threshold1, threshold2)
+# threshold1: lower threshold, threshold2: upper threshold
+# threshold2 = 2 × threshold1
+
 canny = cv.Canny(img, 125, 175)
 cv.imshow('Canny', rescaleImage(canny))
 
